@@ -1,45 +1,53 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { TabBar } from "@/components/TabBar";
+import { Feather } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+import React from "react";
+import Entypo from "react-native-vector-icons/Entypo";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const TabLayout = () => {
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+      tabBar={(props) => <TabBar {...props} />}
+      screenOptions={{ headerShown: false }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "news",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="news" size={24} color="black" />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="video"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "shorts",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="video" size={24} color={"black"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="quizzes"
+        options={{
+          title: "quizzes",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="controller-play" size={24} color={"black"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="user" color={color} size={size} />
+          ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default TabLayout;
