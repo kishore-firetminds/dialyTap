@@ -1,58 +1,61 @@
-import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   FlatList,
-  SafeAreaView,
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
-const videos = Array.from({ length: 8 }).map((_, i) => ({
-  id: i.toString(),
-  title: "Video alt text here",
-}));
+const videos = new Array(8).fill(null); // Dummy array of 8 items
 
-export default function VideoScreen() {
+export default function VideosScreen() {
   const navigation = useNavigation();
 
-  const renderItem = ({ item }: { item: (typeof videos)[0] }) => (
-    <TouchableOpacity style={styles.videoItem}>
-      <Ionicons name="play-circle-outline" size={50} color="gray" />
-      <Text style={styles.videoText}>{item.title}</Text>
+  const renderItem = ({ item, index }: { item: any; index: number }) => (
+    <TouchableOpacity key={index} style={styles.videoItem}>
+      <Image
+        source={require("../../assets/images/Vector.png")}
+        style={styles.videoIcon}
+      />
+      <Text style={styles.videoText}>Video alt text here</Text>
     </TouchableOpacity>
   );
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Header */}
+    <View style={styles.container}>
+      {/* Top Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="#fff" />
+          <Icon name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Videos</Text>
-        <View style={{ width: 24 }} />
+        <View style={{ width: 24 }} /> {/* Spacer for balance */}
       </View>
 
-      {/* Grid */}
+      {/* Grid of Videos */}
       <FlatList
         data={videos}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(_, index) => index.toString()}
         numColumns={2}
         contentContainerStyle={styles.videoList}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff" },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
   header: {
     flexDirection: "row",
-    backgroundColor: "#1976D2",
+    backgroundColor: "#007AFF",
     padding: 16,
     alignItems: "center",
     justifyContent: "space-between",
@@ -76,10 +79,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 10,
   },
+  videoIcon: {
+    width: 50,
+    height: 50,
+    resizeMode: "contain",
+    marginBottom: 10,
+  },
   videoText: {
     textAlign: "center",
     fontSize: 12,
     color: "#555",
-    marginTop: 8,
   },
 });

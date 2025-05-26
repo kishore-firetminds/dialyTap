@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
   Alert,
@@ -11,6 +12,8 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 
 export default function ProfileScreen() {
+  const navigation = useNavigation();
+
   const [phone, setPhone] = useState("+91 9876543210");
   const [name, setName] = useState("News Reader");
   const [location, setLocation] = useState("Delhi");
@@ -36,7 +39,12 @@ export default function ProfileScreen() {
     <View style={styles.container}>
       {/* Top Bar */}
       <View style={styles.header}>
-        <Icon name="arrow-back" size={24} color="#fff" />
+        <Icon
+          name="arrow-back"
+          size={24}
+          color="#fff"
+          onPress={() => navigation.goBack()}
+        />
         <Text style={styles.headerTitle}>Profile</Text>
         <Icon name="settings-outline" size={24} color="#fff" />
       </View>
@@ -81,10 +89,8 @@ export default function ProfileScreen() {
         <Text style={styles.saveButtonText}>Save</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={handleLogout}
-        style={{ alignItems: "center", marginTop: 20 }}
-      >
+      <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
+        <Icon name="power" size={16} color="#555" style={styles.logoutIcon} />
         <Text style={styles.logoutText}>Log Out</Text>
       </TouchableOpacity>
     </View>
@@ -183,13 +189,23 @@ const styles = StyleSheet.create({
   },
   logoutText: {
     fontFamily: "Comfortaa",
-    fontWeight: "700",
+    fontWeight: "500",
     fontSize: 16,
     lineHeight: 16,
     letterSpacing: 0,
     textAlign: "center",
     borderRadius: 20,
     marginTop: 20,
-    textDecorationLine: "underline",
+    textDecorationLine: "none",
+  },
+  logoutButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 30,
+  },
+  logoutIcon: {
+    marginRight: 6,
+    marginTop: 16,
   },
 });

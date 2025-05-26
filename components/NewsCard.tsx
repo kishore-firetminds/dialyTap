@@ -32,6 +32,32 @@ const NewsCard = () => {
         sint. Velit officia consequat duis enim velit mollit. Exercitation
         veniam consequat sunt nostrud amet.
       </Text>
+      <Image
+        source={require("../assets/images/ground.png")}
+        style={styles.image}
+        resizeMode="cover"
+      />
+      <Text style={styles.title}>IND v/s SA ICC T20 WC</Text>
+      <Text style={styles.description}>
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit. Exercitation
+        veniam consequat sunt nostrud amet.lamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit. Exercitation
+        veniam consequat sunt nostrud amet.
+      </Text>
+      <Image
+        source={require("../assets/images/home3.png")}
+        style={styles.image}
+        resizeMode="cover"
+      />
+      <Text style={styles.title}>5 Tips to earn money for Students</Text>
+      <Text style={styles.description}>
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit. Exercitation
+        veniam consequat sunt nostrud amet.lamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit. Exercitation
+        veniam consequat sunt nostrud amet.
+      </Text>
     </View>
   );
 };

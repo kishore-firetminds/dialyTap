@@ -46,6 +46,33 @@ const TabLayout = () => {
           ),
         }}
       />
+      <Tabs.Screen
+        name="tech"
+        options={{
+          title: "tech",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="laptop" size={24} color={"black"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Statistic"
+        options={{
+          title: "Live Statistic",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="Statistic" size={24} color={"black"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="discover"
+        options={{
+          title: "Discover",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="Discover" size={24} color={"black"} />
+          ),
+        }}
+      />
     </Tabs>
   );
 };

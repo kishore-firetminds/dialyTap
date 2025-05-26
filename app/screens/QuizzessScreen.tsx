@@ -54,7 +54,7 @@ const HomeScreen = () => {
           />
         </View>
 
-        {/* Screen 2 - Media Card */}
+        {/* Screen 3 - Media Card */}
         <View style={styles.fullPage}>
           <View style={styles.mediaCard}>
             <Image
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     height: height,
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "#000",
+    backgroundColor: "#ffffff",
     padding: 16,
     paddingTop: 0,
   },
@@ -211,19 +211,21 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   hubbleTitle: {
-    fontFamily: "Open Sans",
+    color: "#fff",
+    fontSize: 18,
     fontWeight: "600",
-    fontSize: 20,
-    lineHeight: 20,
-    letterSpacing: 0,
-    marginTop: 10,
-    color: "#ffffff",
+    position: "absolute",
+    bottom: height * 0.28,
+    left: 32,
+    textShadowColor: "rgba(0, 0, 0, 0.6)",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 4,
   },
   footer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 140,
+    marginTop: 24,
     paddingHorizontal: 4,
   },
   profileSection: {

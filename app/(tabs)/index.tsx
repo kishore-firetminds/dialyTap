@@ -62,6 +62,22 @@ const HomeScreen = () => {
             description="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.lamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
           />
         </View>
+        {/* Screen 3 */}
+        <View style={styles.fullPage}>
+          <NewsCard
+            image={require("../../assets/images/ground.png")}
+            title="IND v/s SA ICC T20 WC"
+            description="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.lamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+          />
+        </View>
+        {/* Screen 3 */}
+        <View style={styles.fullPage}>
+          <NewsCard
+            image={require("../../assets/images/home3.png")}
+            title="5 Tips to earn money for Students"
+            description="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.lamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+          />
+        </View>
       </ScrollView>
     </View>
   );
@@ -107,7 +123,6 @@ const styles = StyleSheet.create({
   headerCenter: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 0,
   },
   logoText: {
     fontSize: 18,

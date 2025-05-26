@@ -47,22 +47,22 @@ const HomeScreen = () => {
       >
         {/* Screen 1 */}
         <View style={styles.fullPage}>
-          <MediaCard1
-            image={require("../../assets/images/tortoise.png")}
+          <TechCard
+            image={require("../../assets/images/mobile.png")}
             title="Marine Pollution"
             description="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.lamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
           />
         </View>
 
-        {/* Screen 2 - Media Card */}
+        {/* Screen 2 - Tech Card */}
         <View style={styles.fullPage}>
           <View style={styles.mediaCard}>
             <Image
-              source={require("../../assets/images/stars.png")}
+              source={require("../../assets/images/tech2.png")}
               style={styles.hubbleImage}
             />
             <Text style={styles.hubbleTitle}>
-              New photos from Hubble Telescope
+              Awesome Designed phones in Market
             </Text>
 
             <View style={styles.footer}>
@@ -99,7 +99,7 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-const MediaCard1 = ({
+const TechCard = ({
   image,
   title,
   description,
@@ -110,12 +110,7 @@ const MediaCard1 = ({
 }) => {
   return (
     <View style={styles.card}>
-      <View style={styles.imageContainer}>
-        <Image source={image} style={styles.image} resizeMode="cover" />
-        <View style={styles.playIconOverlay}>
-          <Feather name="play-circle" size={50} color="#ffffff" />
-        </View>
-      </View>
+      <Image source={image} style={styles.image} resizeMode="cover" />
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
     </View>
@@ -153,37 +148,28 @@ const styles = StyleSheet.create({
     height: height,
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "#000",
+    backgroundColor: "#ffffff",
     padding: 16,
     paddingTop: 0,
   },
-  // MediaCard
   card: {
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: "#EEEEEE",
     borderRadius: 0,
-  },
-  imageContainer: {
-    position: "relative",
-    width: width - 60,
-    height: 343,
-    marginBottom: 20,
+    shadowColor: "transparent",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0,
+    shadowRadius: 0,
+    elevation: 0,
   },
   image: {
-    width: "100%",
-    height: "100%",
+    width: width - 60,
+    height: 343,
+
     borderRadius: 20,
-  },
-  playIconOverlay: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: [{ translateX: -25 }, { translateY: -25 }],
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1,
+    marginBottom: 20,
   },
   title: {
     fontWeight: "700",
@@ -199,7 +185,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     lineHeight: 22,
   },
-  // Media Card Styles
+  // Tech Card Styles
   mediaCard: {
     flex: 1,
     width: "100%",
@@ -209,6 +195,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: height * 0.6,
     borderRadius: 20,
+    marginTop: 30,
   },
   hubbleTitle: {
     fontFamily: "Open Sans",
@@ -216,8 +203,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 20,
     letterSpacing: 0,
-    marginTop: 10,
-    color: "#ffffff",
+    marginTop: 5,
   },
   footer: {
     flexDirection: "row",
